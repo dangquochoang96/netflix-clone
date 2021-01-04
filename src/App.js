@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React from 'react'
+import requests from './request'
 import './App.css';
+import Row from './Components/Row'
+import Banner from './Components/Banner'
+import Navbar from './Components/Navbar'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Banner />
+      <Row title="NETFLIX Phim Gốc" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
+      <Row title="Phim Thịnh Hành" fetchUrl={requests.fetchTrending} />
+      <Row title="Phim Đánh Giá Cao" fetchUrl={requests.fetchTopRated} />
+      <Row title="Phim Hành Động" fetchUrl={requests.fetchActionMovies} />
+      <Row title="Phim Hài" fetchUrl={requests.fetchComedyMovies} />
+      <Row title="Phim Kinh Dị" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="Phim Tình Cảm" fetchUrl={requests.fetchRomanceMovies} />
+      <Row title="Phim Tài Liệu" fetchUrl={requests.fetchDocumentaries} />
     </div>
   );
 }
